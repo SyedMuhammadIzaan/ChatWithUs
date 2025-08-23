@@ -18,6 +18,13 @@ const Faq = () => {
 
                 </div>
             </div>
+            <div className="text-area-wrapper">
+                <div className="text-field"></div>
+                <div className="msg-btn">
+                    <button>Send</button>
+                </div>
+             
+            </div>
         </div>
         <div className='chat-icon'>
             <PiChatCircleLight size={58} />
