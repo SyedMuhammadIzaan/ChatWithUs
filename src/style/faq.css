@@ -1,0 +1,23 @@
+.faq-wrapper{
+    /* border:1px solid black; */
+    width:100%;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.faq-wrapper .chat-wrapper{
+    border:2px solid blue;
+}
+
+.faq-wrapper .chat-wrapper .chats{
+    
+}
+.faq-wrapper .chat-icon{
+    border: 3px solid rgb(73, 189, 73);
+    border-radius: 10px;
+    height: 10vh;
+    width: 5vw;
+} 
