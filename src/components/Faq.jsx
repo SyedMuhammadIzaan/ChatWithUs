@@ -1,7 +1,9 @@
-import React from 'react'
+// import React from 'react'
 import { PiChatCircleLight } from "react-icons/pi";
 import "../style/faq.css";
+import { useState } from "react";
 const Faq = () => {
+    const [query,setQuery]=useState();
     const handleMessage=()=>{
 
     }
@@ -28,7 +30,7 @@ const Faq = () => {
             </div>
             <div className="text-area-wrapper">
                 <div className="text-field">
-                    <input type="text" placeholder='Type Message...' name='message' onChange={handleMessage} />
+                    <input value={query} type="text" placeholder='Type Message...' name='message' onChange={handleMessage} />
                 </div>
                 <div className="msg-btn">
                     <button>Send</button>
