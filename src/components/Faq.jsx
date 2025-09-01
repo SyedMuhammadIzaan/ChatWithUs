@@ -2,10 +2,27 @@
 import { PiChatCircleLight } from "react-icons/pi";
 import "../style/faq.css";
 import { useState } from "react";
+import { nanoid } from "nanoid";
 const Faq = () => {
-    const [query,setQuery]=useState();
-    const handleMessage=()=>{
+    const uniqueId=nanoid();
+    const [message,setMessage]=useState([]);
+    const [query,setQuery]=useState("");
 
+    const handleChange=(e)=>{
+        // console.log("Value",e.target.value);
+        setQuery(e.target.value)
+    }
+    const handleSend=async()=>{
+        try {
+            if(!query.trim())return null;
+            const userMsg={id:uniqueId,reply:query,role:"user"};
+            // console.log("User Msg",userMsg);
+            setMessage(prev=> [...prev,userMsg]);
+
+        } catch (error) {
+            console.log("error",error)
+        }
+        setQuery("");
     }
   return (
     <div className='faq-wrapper'>
@@ -24,16 +41,17 @@ const Faq = () => {
                         <p>Hi</p>
                     </div>
                     <div className="user-message">
-                        <p>Can you tell about refund policy</p>
+                        <p>{message.reply}</p>
+                        {/* <p>Can you tell about refund policy</p> */}
                     </div>
                 </div>
             </div>
             <div className="text-area-wrapper">
                 <div className="text-field">
-                    <input value={query} type="text" placeholder='Type Message...' name='message' onChange={handleMessage} />
+                    <input value={query} onChange={handleChange} type="text" placeholder='Type Message...' name='message' />
                 </div>
                 <div className="msg-btn">
-                    <button>Send</button>
+                    <button onClick={handleSend}>Send</button>
                 </div>
              
             </div>
