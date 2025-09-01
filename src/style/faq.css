@@ -52,11 +52,11 @@
 }
 .chats .display-message{
     display:flex;
-    overflow-y: auto;
+    /* overflow-x: auto; */
     flex-direction: column;
 }
 .chats .display-message .my-message{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     width: 100%;
     align-self: flex-start;
 }
