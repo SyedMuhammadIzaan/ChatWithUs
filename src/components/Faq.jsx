@@ -1,11 +1,15 @@
 // import React from 'react'
-import { PiChatCircleLight } from "react-icons/pi";
-import "../style/faq.css";
 import { useState } from "react";
 import { nanoid } from "nanoid";
+import { RiRobot3Line } from "react-icons/ri";
+import { PiChatCircleLight } from "react-icons/pi";
+import { RxAvatar } from "react-icons/rx";
+import "../style/faq.css";
 const Faq = () => {
 	const uniqueId = nanoid();
-	const [message, setMessage] = useState([]);
+	const [message, setMessage] = useState([
+		{ id: uniqueId, reply: "Hi", role: "bot" },
+	]);
 	const [query, setQuery] = useState("");
 
 	const handleChange = (e) => {
@@ -20,12 +24,12 @@ const Faq = () => {
 			setMessage((prev) => [...prev, userMsg]);
 
 			if (query) {
-				const res=await fetch("/api/chat", {
+				const res = await fetch("/api/chat", {
 					method: "post",
 					body: JSON.stringify({ message: query }),
 				});
-                const data=await res.json();
-                console.log("Data",data);
+				const data = await res.json();
+				console.log("Data", data);
 			}
 		} catch (error) {
 			console.log("error", error);
@@ -45,13 +49,22 @@ const Faq = () => {
 				</div>
 				<div className="chats">
 					<div className="display-message">
-						<div className="my-message">
-							<p>Hi</p>
-						</div>
-						<div className="user-message">
-							<p>{message.reply}</p>
-							{/* <p>Can you tell about refund policy</p> */}
-						</div>
+						{message.map((msg) => (
+							<div
+								className={`message ${msg.role === "user" ? "user" : "bot"}`}
+								key={msg.id}
+							>
+								{msg.role === "bot" && <RiRobot3Line />}
+								<div
+									className={
+										msg.role === "user" ? "user-message" : "my-message"
+									}
+								>
+									{msg.reply}
+								</div>
+								{msg.role === "user" && <RxAvatar />}
+							</div>
+						))}
 					</div>
 				</div>
 				<div className="text-area-wrapper">
@@ -77,3 +90,11 @@ const Faq = () => {
 };
 
 export default Faq;
+
+// <div className="my-message">
+// 	<p>Hi</p>
+// </div>
+// <div className="user-message">
+// 	<p>{message.reply}</p>
+// 	{/* <p>Can you tell about refund policy</p> */}
+// </div>

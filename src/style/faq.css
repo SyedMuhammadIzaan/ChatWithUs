@@ -1,91 +1,119 @@
-.faq-wrapper{
-    /* border:1px solid black; */
-    width:100%;
-    min-height: 100vh;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    font-size: 16px;
-    color: white;
+.faq-wrapper {
+	/* border:1px solid black; */
+	width: 100%;
+	min-height: 100vh;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-end;
+	font-size: 16px;
+	color: white;
 }
-.faq-wrapper .chat-wrapper{
-    border:1px solid blue;
-    border-radius: 10px;
-    height: 50vh;
-    width: 22vw;
-    margin-bottom: 1em;
-}
-
-.faq-wrapper .chat-wrapper .chat-header{
-    /* border: 2px solid yellow; */
-    background-color: rgb(109, 109, 247);
+.faq-wrapper .chat-wrapper {
+	border: 1px solid rgb(63, 63, 255);
+	border-radius: 10px;
+	height: 50vh;
+	width: 22vw;
+	margin-bottom: 1em;
 }
 
-.chat-wrapper .chat-header .heading h3{
-    margin-top: 0em;
-    margin-bottom: -0.4em;
+.faq-wrapper .chat-wrapper .chat-header {
+	/* border: 2px solid yellow; */
+	padding: 1em;
+	background-color: rgb(63, 63, 255);
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 
-.chat-header .our-intro p{
-    margin-bottom: 0;
+.chat-wrapper .chat-header .heading h3 {
+	margin-top: 0em;
+	margin-bottom: -0.4em;
+}
+
+.chat-header .our-intro p {
+	margin-bottom: 0;
 }
 .chat-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%; /* or set a fixed height like 100vh or 500px */
+	display: flex;
+	flex-direction: column;
+	height: 100%; /* or set a fixed height like 100vh or 500px */
 }
-.chat-wrapper .chats{
-    border: 1px solid green;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 0.5em;
-    flex: 1;
+.chat-wrapper .chats {
+	/* border: 1px solid green; */
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 0.5em;
+	flex: 1;
+	color: black;
 }
-.chats .display-message{
-    /* border: 1px solid black; */
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
+.chats .display-message {
+	/* border: 1px solid black; */
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	/* overflow-x: auto; */
+	flex-direction: column;
+	gap: 0.2em;
 }
-.chats .display-message{
-    display:flex;
-    /* overflow-x: auto; */
-    flex-direction: column;
-}
-.chats .display-message .my-message{
-    /* border: 2px solid blue; */
-    width: 100%;
-    align-self: flex-start;
-}
-.chats .display-message .user-message{
-    border: 2px solid red;
-    /* width: 100%; */
-    display: flex;
-    align-self: flex-end;
-}
-.chats .display-message .my-message p{
-    color: black;
-}
-.chats .display-message .user-message p{
-    color: black;
 
+.message {
+	display: flex;
+	align-items: center;
+	margin: 5px 0;
 }
-.chat-wrapper .text-area-wrapper{
-    border: 2px solid purple;
-    width: 100%;
-    height: auto;
-    min-height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+
+.message.bot {
+	justify-content: flex-start; /* left */
 }
-.faq-wrapper .chat-icon{
-    border: 3px solid rgb(73, 189, 73);
-    border-radius: 10px;
-    height: 10vh;
-    width: 5vw;
-} 
+
+.message.user {
+	justify-content: flex-end; /* right */
+}
+
+/* .chats .display-message .message {
+	display: flex;
+	align-items: center;
+}
+.display-message .message .my-message {
+	background: #f1f1f1;
+	padding: 8px 12px;
+	border-radius: 8px;
+	max-width: 70%;
+	align-self: flex-start;
+}
+.display-message .message .user-message {
+	background: #d1ffd1;
+	padding: 8px 12px;
+	border-radius: 8px;
+	max-width: 70%;
+	align-self: flex-end;
+} */
+.chats .display-message .my-message p {
+	color: black;
+	background: #f1f1f1;
+}
+.chats .display-message .user-message p {
+	color: black;
+	background: #d1ffd1;
+}
+.chat-wrapper .text-area-wrapper {
+	/* border: 2px solid purple; */
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.2em;
+	height: auto;
+	min-height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.faq-wrapper .chat-icon {
+	border: 3px solid rgb(73, 189, 73);
+	border-radius: 10px;
+	height: 10vh;
+	width: 5vw;
+}
