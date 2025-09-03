@@ -4,6 +4,8 @@ import { nanoid } from "nanoid";
 import { RiRobot3Line } from "react-icons/ri";
 import { PiChatCircleLight } from "react-icons/pi";
 import { RxAvatar } from "react-icons/rx";
+const API_URL = import.meta.env.VITE_API_URL;
+console.log("API_URL",API_URL)
 import "../style/faq.css";
 const Faq = () => {
 	const uniqueId = nanoid();
@@ -24,12 +26,17 @@ const Faq = () => {
 			setMessage((prev) => [...prev, userMsg]);
 
 			if (query) {
-				const res = await fetch("/api/chat", {
+				const res = await fetch(`${API_URL}/chat`, {
 					method: "post",
+					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({ message: query }),
 				});
 				const data = await res.json();
 				console.log("Data", data);
+				if(data){
+					const botMsg={ id: uniqueId, reply: data.reply, role: "bot" };
+					setMessage(prev=>[...prev,botMsg])
+				}
 			}
 		} catch (error) {
 			console.log("error", error);
